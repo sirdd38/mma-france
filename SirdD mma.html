@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SirdD MMA - Actualités UFC et MMA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(206,17,38,0.8) 100%);
+        }
+        .fighter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .news-card:hover .news-title {
+            color: #ce1126;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-black text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-fist-raised text-red-600 text-2xl"></i>
+                <a href="#" class="text-xl font-bold">SirdD<span class="text-red-600">MMA</span></a>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-red-500 transition">Accueil</a>
+                <a href="#" class="hover:text-red-500 transition">Actualités</a>
+                <a href="#" class="hover:text-red-500 transition">Résultats</a>
+                <a href="#" class="hover:text-red-500 transition">Calendrier</a>
+                <a href="#" class="hover:text-red-500 transition">Classements</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-medium transition">Connexion</button>
+                <button class="md:hidden text-xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-gray-900" id="mobile-menu">
+            <div class="px-2 pt-2 pb-4 space-y-1">
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Accueil</a>
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Actualités</a>
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Résultats</a>
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Calendrier</a>
+                <a href="#" class="block px-3 py-2 rounded hover:bg-gray-800">Classements</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">L'Actualité MMA & UFC en France</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Toutes les dernières infos sur les arts martiaux mixtes, analyses de combats et interviews exclusives.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-bold text-lg transition">Dernières Actualités</button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-black px-6 py-3 rounded-lg font-bold text-lg transition">Prochains Événements</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Breaking News -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold border-l-4 border-red-600 pl-4">Dernières Actualités</h2>
+                <a href="#" class="text-red-600 hover:underline flex items-center">
+                    Voir plus <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- News Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card transition">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400/ce1126/ffffff?text=UFC+300" alt="UFC 300" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">BREAKING</span>
+                    </div>
+                    <div classp-4">
+                        <span class="text-gray-500 text-sm">26 Mai 2024</span>
+                        <h3 class="news-title text-xl font-bold my-2 transition">UFC 300 : Analyse des combats principaux</h3>
+                        <p class="text-gray-700 mb-4">Découvrez notre analyse détaillée des combats principaux de l'UFC 300 qui a marqué l'histoire de l'organisation.</p>
+                        <a href="#" class="text-red-600 font-medium hover:underline">Lire l'article</a>
+                    </div>
+                </div>
+                
+                <!-- News Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card transition">
+                    <img src="https://via.placeholder.com/600x400/333333/ffffff?text=Gane" alt="Ciryl Gane" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <span class="text-gray-500 text-sm">20 Mai 2024</span>
+                        <h3 class="news-title text-xl font-bold my-2 transition">Ciryl Gane : Son retour prévu pour cet été</h3>
+                        <p class="text-gray-700 mb-4">Le français Ciryl Gane devrait faire son retour dans l'octogone cet été selon son manager.</p>
+                        <a href="#" class="text-red-600 font-medium hover:underline">Lire l'article</a>
+                    </div>
+                </div>
+                
+                <!-- News Card 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md news-card transition">
+                    <img src="https://via.placeholder.com/600x400/000000/ffffff?text=MMA+France" alt="MMA en France" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <span class="text-gray-500 text-sm">15 Mai 2024</span>
+                        <h3 class="news-title text-xl font-bold my-2 transition">Le MMA français en plein essor</h3>
+                        <p class="text-gray-700 mb-4">Avec plusieurs champions et de jeunes espoirs, la France s'impose comme une nation majeure du MMA mondial.</p>
+                        <a href="#" class="text-red-600 font-medium hover:underline">Lire l'article</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-l-4 border-red-600 pl-4 mb-8">Prochains Événements UFC</h2>
+            
+            <div class="bg-black text-white rounded-lg overflow-hidden shadow-lg">
+                <div class="grid md:grid-cols-3">
+                    <!-- Main Event -->
+                    <div class="md:col-span-2 p-6 md:p-8 relative">
+                        <img src="https://via.placeholder.com/800x600/333333/ffffff?text=UFC+301" alt="UFC 301" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                        <div class="relative z-10">
+                            <span class="text-red-500 font-bold">ÉVÉNEMENT PRINCIPAL</span>
+                            <h3 class="text-2xl md:text-3xl font-bold my-3">UFC 301 : Pantoja vs. Erceg</h3>
+                            <p class="text-gray-300 mb-4">11 Mai 2024 - Rio de Janeiro, Brésil</p>
+                            <div class="flex flex-wrap gap-3 mb-4">
+                                <span class="bg-red-600 px-3 py-1 rounded-full text-sm">Ceinture en jeu</span>
+                                <span class="bg-gray-700 px-3 py-1 rounded-full text-sm">Co-main event</span>
+                                <span class="bg-gray-700 px-3 py-1 rounded-full text-sm">12 combats</span>
+                            </div>
+                            <button class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded font-bold transition">Voir la carte complète</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Fight Card -->
+                    <div class="bg-gray-900 p-6 md:p-8">
+                        <h4 class="text-xl font-bold mb-4">Combats Principaux</h4>
+                        <ul class="space-y-4">
+                            <li class="border-b border-gray-700 pb-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Alexandre Pantoja</span>
+                                    <span class="text-gray-400">vs</span>
+                                    <span class="font-medium">Steve Erceg</span>
+                                </div>
+                                <p class="text-sm text-gray-400">Poids mouches</p>
+                            </li>
+                            <li class="border-b border-gray-700 pb-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Jonathan Martinez</span>
+                                    <span class="text-gray-400">vs</span>
+                                    <span class="font-medium">Jose Aldo</span>
+                                </div>
+                                <p class="text-sm text-gray-400">Poids coqs</p>
+                            </li>
+                            <li class="border-b border-gray-700 pb-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Anthony Smith</span>
+                                    <span class="text-gray-400">vs</span>
+                                    <span class="font-medium">Vitor Petrino</span>
+                                </div>
+                                <p class="text-sm text-gray-400">Poids mi-lourds</p>
+                            </li>
+                            <li>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Michel Pereira</span>
+                                    <span class="text-gray-400">vs</span>
+                                    <span class="font-medium">Ihor Potieria</span>
+                                </div>
+                                <p class="text-sm text-gray-400">Poids moyens</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Fighters -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-l-4 border-red-600 pl-4 mb-8">Top 5 des Combattants Français</h2>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Fighter 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fighter-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x500/333333/ffffff?text=Ciryl+Gane" alt="Ciryl Gane" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-white font-bold">Poids lourds</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Ciryl Gane</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-gray-600">12-2-0</span>
+                            <span class="bg-yellow-400 text-black px-2 py-1 rounded text-xs font-bold">#2</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fighter 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fighter-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x500/333333/ffffff?text=Manon+Fiorot" alt="Manon Fiorot" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-white font-bold">Poids mouches F</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Manon Fiorot</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-gray-600">11-1-0</span>
+                            <span class="bg-yellow-400 text-black px-2 py-1 rounded text-xs font-bold">#1</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fighter 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fighter-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x500/333333/ffffff?text=Benoit+St+Denis" alt="Benoit St Denis" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-white font-bold">Poids légers</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Benoit St Denis</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-gray-600">13-2-0</span>
+                            <span class="bg-gray-200 text-black px-2 py-1 rounded text-xs font-bold">#10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fighter 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fighter-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x500/333333/ffffff?text=Nassourdine+Imavov" alt="Nassourdine Imavov" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-white font-bold">Poids moyens</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Nassourdine Imavov</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-gray-600">13-4-0</span>
+                            <span class="bg-gray-200 text-black px-2 py-1 rounded text-xs font-bold">#8</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fighter 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fighter-card transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x500/333333/ffffff?text=William+Gomis" alt="William Gomis" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <span class="text-white font-bold">Poids plumes</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">William Gomis</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-gray-600">13-2-0</span>
+                            <span class="bg-gray-200 text-black px-2 py-1 rounded text-xs font-bold">#15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-l-4 border-red-600 pl-4 mb-8">Vidéos à la Une</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Main Video -->
+                <div class="bg-black rounded-lg overflow-hidden">
+                    <div class="relative pt-[56.25%]">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-white mb-2">Les meilleurs KO de 2024</h3>
+                        <p class="text-gray-400">Revivez les knockouts les plus spectaculaires de cette année dans l'UFC.</p>
+                    </div>
+                </div>
+                
+                <!-- Video List -->
+                <div class="space-y-4">
+                    <div class="flex bg-gray-800 rounded-lg overflow-hidden">
+                        <div class="w-1/3 relative">
+                            <img src="https://via.placeholder.com/300x200/333333/ffffff?text=Interview" alt="Interview" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-play text-white text-2xl bg-red-600 rounded-full w-10 h-10 flex items-center justify-center"></i>
+                            </div>
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <h4 class="font-bold text-white mb-1">Interview exclusive de Ciryl Gane</h4>
+                            <p class="text-gray-400 text-sm">Le français parle de son prochain combat</p>
+                            <span class="text-gray-500 text-xs mt-2">2 jours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex bg-gray-800 rounded-lg overflow-hidden">
+                        <div class="w-1/3 relative">
+                            <img src="https://via.placeholder.com/300x200/333333/ffffff?text=Analyse" alt="Analyse" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-play text-white text-2xl bg-red-600 rounded-full w-10 h-10 flex items-center justify-center"></i>
+                            </div>
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <h4 class="font-bold text-white mb-1">Analyse technique : Le jeu de jambes de Fiorot</h4>
+                            <p class="text-gray-400 text-sm">Décryptage du style unique de la Française</p>
+                            <span class="text-gray-500 text-xs mt-2">1 semaine</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex bg-gray-800 rounded-lg overflow-hidden">
+                        <div class="w-1/3 relative">
+                            <img src="https://via.placeholder.com/300x200/333333/ffffff?text=Documentaire" alt="Documentaire" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-play text-white text-2xl bg-red-600 rounded-full w-10 h-10 flex items-center justify-center"></i>
+                            </div>
+                        </div>
+                        <div class="w-2/3 p-4">
+                            <h4 class="font-bold text-white mb-1">L'essor du MMA en France</h4>
+                            <p class="text-gray-400 text-sm">Documentaire sur la progression du sport en France</p>
+                            <span class="text-gray-500 text-xs mt-2">3 semaines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="bg-gray-900 text-white rounded-xl p-8 md:p-12 mb-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Restez informé avec notre newsletter</h2>
+                <p class="text-gray-300 mb-8">Recevez chaque semaine les dernières actualités UFC, analyses de combats et interviews exclusives directement dans votre boîte mail.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                    <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-bold transition">S'abonner</button>
+                </form>
+                
+                <p class="text-gray-400 text-sm mt-4">Nous ne partagerons jamais votre email. Désabonnez-vous à tout moment.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-fist-raised text-red-600 text-2xl"></i>
+                        <span class="text-xl font-bold">MMA<span class="text-red-600">France</span></span>
+                    </div>
+                    <p class="text-gray-400">Le site de référence sur le MMA et l'UFC pour les fans francophones. Actualités, analyses et résultats en temps réel.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b border-gray-800 pb-2">Actualités</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Dernières nouvelles</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Interviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Analyses de combats</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Transferts et contrats</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blessures et suspensions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b border-gray-800 pb-2">Ressources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Calendrier UFC</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Classements officiels</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Historique des combats</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Statistiques des combattants</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Guide des règles MMA</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4 border-b border-gray-800 pb-2">À propos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Qui sommes-nous ?</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contactez-nous</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Conditions d'utilisation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Publicité</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+                <p>© 2024 MMA France. Tous droits réservés. UFC et le logo UFC sont des marques déposées de la Ultimate Fighting Championship.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
