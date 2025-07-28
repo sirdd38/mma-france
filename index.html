@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sirdd MMA - Actualités UFC 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #000000, #1c1c1c);
+      color: white;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+    }
+  .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: #E10600;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 24px;
+      height: 16px;
+      margin-left: 10px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #E10600;
+    }
+    section {
+      padding: 120px 20px 80px;
+    }
+    .hero {
+      background: url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1pLzNJ.img?w=1920&h=1080&q=60&m=2&f=jpg') no-repeat center/cover;
+      height: 120vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+    .hero h1 {
+      font-size: 48px;
+      color: white;
+      text-shadow: 2px 2px 8px black;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #E10600;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #111;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      animation: glowRed 1.5s infinite alternate;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f0f0f;
+      color: gray;
+    }
+    /* Animations et effets avancés */
+    @keyframes glowRed {
+      0%, 100% { box-shadow: 0 0 10px #E10600; }
+      50% { box-shadow: 0 0 20px #FF3B3B; }
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(50, 50, 50, 0.85);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-content {
+      background: #222;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      padding: 30px;
+      color: white;
+      position: relative;
+      box-shadow: 0 0 20px #E10600;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 28px;
+      color: #E10600;
+      cursor: pointer;
+      font-weight: bold;
+      user-select: none;
+    }
+    /* Boutons pronostics */
+    .vote-btn {
+      background: #E10600;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .vote-btn:hover {
+      background: #FF3B3B;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 32px;
+        padding: 0 10px;
+      }
+      header {
+        flex-direction: column;
+        padding: 10px;
+      }
+      nav {
+        margin-top: 15px;
+      }
+      nav a {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Sirdd MMA
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg" alt="Palestine" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" alt="Algerie" />
+    </div>
+    <nav>
+      <a href="#actus">Actualités</a>
+      <a href="#fighters">Combattants</a>
+      <a href="#pfp">Classement PFP</a>
+      <a href="#pronos">Pronostics</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Sirdd MMA - Actu UFC 2025</h1>
+  </section>
+
+  <section id="actus">
+    <h2 class="section-title">Actualités UFC 2025</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://image-cdn.essentiallysports.com/wp-content/uploads/Dana-White-and-Sharaputdin-Magomedov.jpg?width=900" alt="UFC 318">
+        <p><strong>UFC Abu Dhabi:</strong> Shara Bullet prouve encore une fois qu'on le surcote</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn.vox-cdn.com/thumbor/1YfYGXIgVCs32KpZOy5I2HD12go=/0x0:6612x4408/920x613/filters:focal(3072x836:4128x1892):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/74195215/2227158431.0.jpg" alt="RDR">
+        <p><strong>UFC Abu Dhabi:</strong> De Ridder tout aussi goofy que DDP ?</p>
+      </div>
+      <div class="card">
+        <img src="https://www.whitehouse.gov/wp-content/uploads/2025/01/whitehouse-47-media-text-block-image.jpg" alt="UFC WhiteHouse">
+        <p><strong>UFC White House :</strong> Belek un comeback de Conor et Jones ?</p>
+      </div>
+      <div class="card">
+        <img src="https://static.cnews.fr/sites/default/files/styles/image_750_422/public/ufc_tout_savoir_sur_la_nouvelle_star_francaise_nassourdine_imavov__63bf0727a7141_0.jpg?itok=Q_AsiCvm" alt="Imavov">
+        <p><strong>UFC Paris 3 :</strong> Borralho perdant par meurtre ?</p>
+      </div>
+      <div class="card">
+        <img src="https://cdn.prod.website-files.com/677a760f8084966769f9d49c/67f53beaf5c5c23449924a6f_Paddy-Pimblett-UFC.jpg" alt="Pimblett">
+        <p><strong>Pimblett :</strong> Y a-t-il plus surcoté que ce neuil ?</p>
+      </div>
+      <div class="card">
+        <img src="https://www.ufc-fr.com/data/combattant/1358/large//dan-hooker-2024-08-18-06-01-19__iarx__ID1358.jpg" alt="Hooker">
+        <p><strong>Dan Hooker  :</strong> Qu'est ce qu'il fout encore dans le top 15 ? </p>
+      </div>
+      <div class="card">
+        <img src="https://www.ufc-fr.com/data/combattant/2611/large//islam-dulatov-2025-07-19-08-35-00__pmzr__ID2611.jpg" alt="Dulatov">
+        <p><strong>Dulatov :</strong> Ce monstre est à suivre de près </p>
+      </div>
+      <div class="card">
+        <img src="https://cdn.vox-cdn.com/thumbor/FWgw-ExOHrmWLtZ09g0bBssaWvQ=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/25706589/2181002809.jpg" alt="Chimaev">
+        <p><strong>Chimaev :</strong> Peut il survivre au plot armor de DDP ? </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fighters">
+    <h2 class="section-title">Les combattants que j'aime bien</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://i.imgur.com/HF1ykgl.jpg" alt="Islam Makhachev" />
+        <p><strong>Islam Makhachev</strong><br>31 ans | 178 cm | 70 kg<br>🇷🇺 Russie</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/JiOaEwC.jpg" alt="Sean O'Malley" />
+        <p><strong>Sean O'Malley</strong><br>30 ans | 180 cm | 61 kg<br>🇺🇸 USA</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/cDc9K2Y.jpg" alt="Leon Edwards" />
+        <p><strong>Leon Edwards</strong><br>33 ans | 183 cm | 77 kg<br>🇬🇧 Royaume-Uni</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/jIRUg9o.jpg" alt="Jon Jones" />
+        <p><strong>Jon Jones</strong><br>36 ans | 193 cm | 93 kg<br>🇺🇸 USA</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/K51sAj1.jpg" alt="Khamzat Chimaev" />
+        <p><strong>Khamzat Chimaev</strong><br>29 ans | 188 cm | 84 kg<br>🇸🇪 Suède</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/I65kS0H.jpg" alt="Alex Pereira" />
+        <p><strong>Alex Pereira</strong><br>37 ans | 193 cm | 93 kg<br>🇧🇷 Brésil</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/nTTUOqh.jpg" alt="Jiri Prochazka" />
+        <p><strong>Jiri Prochazka</strong><br>32 ans | 193 cm | 93 kg<br>🇨🇿 Tchéquie</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/rO1oA6h.jpg" alt="Charles Oliveira" />
+        <p><strong>Charles Oliveira</strong><br>35 ans | 178 cm | 70 kg<br>🇧🇷 Brésil</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/WADKFPD.jpg" alt="Alexander Volkanovski" />
+        <p><strong>Alexander Volkanovski</strong><br>36 ans | 168 cm | 66 kg<br>🇦🇺 Australie</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/n9geznr.jpg" alt="Justin Gaethje" />
+        <p><strong>Justin Gaethje</strong><br>36 ans | 180 cm | 70 kg<br>🇺🇸 USA</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/zLd7nh8.jpg" alt="Merab Dvalishvili" />
+        <p><strong>Merab Dvalishvili</strong><br>33 ans | 168 cm | 61 kg<br>🇬🇪 Géorgie</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/OgE8HJX.jpg" alt="Tom Aspinall" />
+        <p><strong>Tom Aspinall</strong><br>31 ans | 196 cm | 112 kg<br>🇬🇧 Royaume-Uni</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/ZePo7ym.jpg" alt="Conor McGregor" />
+        <p><strong>Conor McGregor</strong><br>36 ans | 175 cm | 70 kg<br>🇮🇪 Irlande</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/S3sLZQU.jpg" alt="Benoît Saint-Denis" />
+        <p><strong>Benoît Saint-Denis</strong><br>28 ans | 180 cm | 70 kg<br>🇫🇷 France</p>
+      </div>
+      <div class="card">
+        <img src="https://i.imgur.com/Xew6K2R.jpg" alt="Ilia Topuria" />
+        <p><strong>Ilia Topuria</strong><br>27 ans | 170 cm | 66 kg<br>🇪🇸 Espagne</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pfp">
+    <h2 class="section-title">Classement PFP 2025</h2>
+    <div class="cards">
+      <div class="card">
+        <p><strong>1. Ilia "El Matador" Topuria</strong><br>Points : 1935/2000 🔺</p>
+      </div>
+      <div class="card">
+        <p><strong>2. Islam Makhachev</strong><br>Points : 1910/2000 
+      </div>
+      <div class="card">
+        <p><strong>3. Merab "The Machine" Dvalishvili</strong><br>Points : 1880/2000 
+      </div>
+      <div class="card">
+        <p><strong>4. Dricus "Stillknocks" Du Plessis</strong><br>Points : 1855/2000 
+      </div>
+      <div class="card">
+        <p><strong>5. Alexandre "The Canibal" Pantoja</strong><br>Points : 1855/200 
+      </div>
+      <div class="card">
+        <p><strong>6. Alexander "The Great" Volkanovski</strong><br>Points : 1830/2000 
+      </div>
+      <div class="card">
+        <p><strong>7. Magomed Ankalaev</strong><br>Points : 1810/2000 
+      </div>
+      <div class="card">
+        <p><strong>8. Jack Della Maddalena</strong><br>Points : 1800/2000 
+      </div>
+      <div class="card">
+        <p><strong>9. Tom Aspinall</strong><br>Points : 1795 
+      </div>
+      <div class="card">
+        <p><strong>10. Alex "Poatan" Pereira</strong><br>Points : 1780/2000
+      </div>
+      <div class="card">
+        <p><strong>11. Max "Blessed" Holloway</strong><br>Points : 1775/2000 
+      </div>
+      <div class="card">
+        <p><strong>12. Belal "Remember The Name" Muhammad</strong><br>Points : 1760/2000 
+      </div>
+      <div class="card">
+        <p><strong>13. Arman "Ahalkalakets" Tsarukyan</strong><br>Points : 1755/2000
+      </div>
+      <div class="card">
+        <p><strong>14. 	Khamzat "Borz" Chimaev</strong><br>Points : 1745/2000 
+      </div>
+      <div class="card">
+        <p><strong>15. 	Charles "Do Bronx" Oliveira</strong><br>Points : 1720/2000 
+      </div>
+    </div>
+  </section>
+
+  <section id="pronos">
+    <h2 class="section-title">Pronostics</h2>
+    <div class="cards">
+      <div class="card">
+        <p><strong>Prochain combat :</strong> Pereira vs Prochazka 2</p>
+        <button class="vote-btn" data-fighter="Pereira">Pereira</button>
+        <button class="vote-btn" data-fighter="Prochazka">Prochazka</button>
+        <p class="result" id="result1"></p>
+      </div>
+      <div class="card">
+        <p><strong>Combat à venir :</strong> Jones vs Aspinall</p>
+        <button class="vote-btn" data-fighter="Jones">Jones
